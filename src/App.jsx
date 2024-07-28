@@ -37,7 +37,7 @@ function App() {
       setKonten(response.data);
     };
   return (
-    <div className='flex w-full'>
+    <div className={`flex ${isOpen ? '':'justify-between'} w-full`}>
       {!isLoginOrRegister && 
         <div className='h-screen overflow-y-auto'>
           <MyPage isOpen={isOpen}/>
@@ -49,7 +49,7 @@ function App() {
           </div>
         </div>
       }
-      <div className={`${isOpen && !isLoginOrRegister ? 'ml-72 w-3/4' : 'ml-10 w-full'} ${isLoginOrRegister ? '':'mr-10 my-16'} `} >
+      <div className={`container ${isOpen && !isLoginOrRegister ? 'ml-72 w-3/4' : 'ml-10 w-full'} ${isLoginOrRegister ? '':'my-16'} `} >
         <Routes>
           {isLoggedIn?(<>
             <Route path='/*' element={<Navigate to='/'/>}/>
