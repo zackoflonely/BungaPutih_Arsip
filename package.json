@@ -5,7 +5,7 @@
   "type": "module",
   "main": "main.mjs",
   "scripts": {
-    "dev": "concurrently \"vite --open\" \"node backend/server.mjs\"",
+    "dev": "concurrently \"vite --host 0.0.0.0 --open\" \"node backend/server.mjs\"",
     "start": "electron .",
     "build": "vite build",
     "server": "node backend/server.mjs",

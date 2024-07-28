@@ -18,7 +18,7 @@ export default function TableData({getKonten}) {
         icon: "warning"
       });
       if(confirmation.isConfirmed){
-        const response = await Axios.delete(`http://localhost:8000/api/delete/klasifikasi/${ID_Klasifikasi}`);
+        const response = await Axios.delete(`${import.meta.env.VITE_API}/api/delete/klasifikasi/${ID_Klasifikasi}`);
         if (response.status === 200) {
           Swal.fire({
             title: "Berhasil",

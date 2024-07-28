@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 30 Jun 2024 pada 14.57
+-- Waktu pembuatan: 21 Jul 2024 pada 10.53
 -- Versi server: 8.0.30
 -- Versi PHP: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arsip_uptd`
+-- Database: `bungaputih_arsip`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `klasifikasi` (
-  `ID_Klasifikasi` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ID_Klasifikasi` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Keterangan` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -37,7 +37,20 @@ CREATE TABLE `klasifikasi` (
 --
 
 INSERT INTO `klasifikasi` (`ID_Klasifikasi`, `Keterangan`) VALUES
-('426,1', '');
+('Ahli Waris', ''),
+('Berita Acara', ''),
+('Domisili', ''),
+('Rekomendasi', ''),
+('SKMU', ''),
+('SKTM', ''),
+('Surat Kelahiran', ''),
+('Surat Keluar', ''),
+('Surat Kematian', ''),
+('Surat Keterangan', ''),
+('Surat Masuk', ''),
+('Surat Nikah', ''),
+('Surat Permohonan', ''),
+('Undangan', '');
 
 -- --------------------------------------------------------
 
@@ -48,17 +61,24 @@ INSERT INTO `klasifikasi` (`ID_Klasifikasi`, `Keterangan`) VALUES
 CREATE TABLE `surat` (
   `ID_Surat` int NOT NULL,
   `ID_User` int NOT NULL,
-  `Klasifikasi` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Klasifikasi` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `No_Urut` int NOT NULL,
   `Waktu` date NOT NULL,
-  `Tujuan` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `Nomor_Surat` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `Perihal` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `Kaitan` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `Keterangan` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `Jenis` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `File` varchar(250) COLLATE utf8mb4_general_ci NOT NULL
+  `Tujuan` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Nomor_Surat` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Perihal` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Kaitan` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Keterangan` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `File` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `surat`
+--
+
+INSERT INTO `surat` (`ID_Surat`, `ID_User`, `Klasifikasi`, `No_Urut`, `Waktu`, `Tujuan`, `Nomor_Surat`, `Perihal`, `Kaitan`, `Keterangan`, `File`) VALUES
+(4, 1, 'Ahli Waris', 1, '2024-07-10', 'a', 'a', 'a', 'a', 'a', 'File-1720612184440-672340965.pdf'),
+(5, 1, 'Berita Acara', 2, '2024-07-11', 'tes', 'asaj/21ka/aksk', 'a', 'a', 'a', 'File-1720671447387-827435659.pdf');
 
 -- --------------------------------------------------------
 
@@ -111,7 +131,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `surat`
 --
 ALTER TABLE `surat`
-  MODIFY `ID_Surat` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Surat` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

@@ -17,6 +17,7 @@ import User from './component/page/User'
 import TableData from './component/page/klasifikasi/Table'
 import Axios from 'axios'
 import Search from './component/page/Search'
+import Footers from './component/Footers'
 
 function App() {
   const [isOpen, setIsOpen] = useState(true);
@@ -32,7 +33,7 @@ function App() {
   }, []); 
   const [getKonten,setKonten]= useState([]);
   const getKlasifikasi = async () => {
-      const response = await Axios.get("http://localhost:8000/api/klasifikasi");
+      const response = await Axios.get(`${import.meta.env.VITE_API}/api/klasifikasi`);
       setKonten(response.data);
     };
   return (
@@ -48,7 +49,7 @@ function App() {
           </div>
         </div>
       }
-      <div className={`w-full  ${isOpen && !isLoginOrRegister ? 'ml-72' : 'ml-0'} ${isLoginOrRegister ? '':'mr-10 ml-10 my-16'} overflow-y-auto`} >
+      <div className={`${isOpen && !isLoginOrRegister ? 'ml-72 w-3/4' : 'ml-10 w-full'} ${isLoginOrRegister ? '':'mr-10 my-16'} `} >
         <Routes>
           {isLoggedIn?(<>
             <Route path='/*' element={<Navigate to='/'/>}/>
@@ -71,7 +72,7 @@ function App() {
             <Route path='/login' element={<Login />}/>
           </>)}
         </Routes>
-        {/* <TableData /> */}
+        <Footers/>
       </div>
     </div>
   )

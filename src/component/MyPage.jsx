@@ -1,6 +1,8 @@
 import { Sidebar } from 'flowbite-react';
 import { HiArrowSmRight, HiChartPie, HiInbox,HiHome } from 'react-icons/hi';
-import img from '../assets/logo-dispora.png';
+import img from '../assets/logo-kukar.png';
+import img2 from '../assets/logo-kkn.png';
+import img3 from '../assets/logo-unmul.png';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -36,17 +38,24 @@ export default function MyPage({isOpen}) {
   }, []); 
   const [getKonten,setKonten]= useState([]);
   const getKlasifikasi = async () => {
-      const response = await Axios.get("http://localhost:8000/api/klasifikasi");
+      const response = await Axios.get(`${import.meta.env.VITE_API}/api/klasifikasi`);
       setKonten(response.data);
     };
   return (
     <div>
     <Sidebar aria-label="Default sidebar example" className={`overflow-y-auto fixed top-0 ${isOpen ? 'block' : 'w-0 hidden'}`}>
       <Sidebar.Items className='w-46'>
+        <div className='flex justify-center items-center my-3'>
+          <img src={img2} className='h-8' alt="" />
+          <img src={img3} className='h-8' alt="" />
+          <h1 className='text-left ml-3 text-xs font-semibold'>KKN 50 UNIVERSITAS MULAWARMAN KUKAR 68</h1>
+        </div>
         <div className='flex flex-col items-center justify-center'>
-          <img src={img} className='h-32' alt="" />
-          <h1 className='text-sm font-bold'>Pemerintah Desa Bunga Putih</h1>
-          <h2 className='text-sm font-semibold'>Kecamatan Marangkayu</h2>
+          <div className='flex justify-center'>
+            <img src={img} className='h-32' alt="" />
+          </div>
+          <h1 className='text-md font-bold'>Pemerintah Desa Bunga Putih</h1>
+          <h2 className='text-md font-semibold'>Kecamatan Marangkayu</h2>
         </div>
         <Sidebar.ItemGroup className='text-left'>
           <Sidebar.Item icon={HiHome}>

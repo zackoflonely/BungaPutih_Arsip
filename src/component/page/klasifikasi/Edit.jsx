@@ -16,13 +16,13 @@ function Edit() {
   }, []); 
   const { id } = useParams();
   const getKlasifikasi = async () => {
-    const response = await Axios.get(`http://localhost:8000/api/detail_klasifikasi/${id}`);
+    const response = await Axios.get(`${import.meta.env.VITE_API}/api/detail_klasifikasi/${id}`);
     setKlasifikasi(response.data[0].ID_Klasifikasi);
     setKeterangan(response.data[0].Keterangan);
   };
   const handleUpdate = async () => {
      try {
-      const response = await Axios.put(`http://localhost:8000/api/update/klasfikasi/${id}`,{
+      const response = await Axios.put(`${import.meta.env.VITE_API}/api/update/klasfikasi/${id}`,{
         Klasifikasi:Klasifikasi,
         Keterangan:Keterangan,
       })

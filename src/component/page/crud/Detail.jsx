@@ -8,7 +8,7 @@ function Detail(){
     const { id } = useParams();
     const [getKonten,setKonten]= useState([]);
     const getDetail = async () => {
-        const response = await Axios.get(`http://localhost:8000/api/detail_surat/${id}`);
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/detail_surat/${id}`);
         setKonten(response.data);
       };
     useEffect(()=>{

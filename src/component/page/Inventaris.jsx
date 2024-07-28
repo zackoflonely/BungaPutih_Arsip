@@ -26,52 +26,52 @@ function Inventaris(){
     }, []); 
     const [getKonten,setKonten]= useState([]);
     const getSurat = async () => {
-        const response = await Axios.get("http://localhost:8000/api/get");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/get`);
         setKonten(response.data);
     };
     const [getTotKlas,setTotKlas]= useState([]);
     const getKlasifikasi = async () => {
-        const response = await Axios.get("http://localhost:8000/api/surat/klasifikasi");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/surat/klasifikasi`);
         setTotKlas(response.data);
     };
     const [getKlas,setKlas]= useState([]);
     const getKlasData = async () => {
-        const response = await Axios.get("http://localhost:8000/api/klasifikasi");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/klasifikasi`);
         setKlas(response.data);
     };
     const [getYear,setYear]= useState([]);
     const getSuratYear = async () => {
-        const response = await Axios.get("http://localhost:8000/api/surat/year");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/surat/year`);
         setYear(response.data);
         };
     const [getWeek,setWeek]= useState([]);
     const getSuratWeek = async () => {
-        const response = await Axios.get("http://localhost:8000/api/surat/week");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/surat/week`);
         setWeek(response.data);
         };
     const [getTotal,setTotal]= useState([]);
     const getSuratTotal = async () => {
-        const response = await Axios.get("http://localhost:8000/api/surat/total");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/surat/total`);
         setTotal(response.data);
         };
     const [getAll,setAll]= useState([]);
     const getSuratAll = async () => {
-        const response = await Axios.get("http://localhost:8000/api/surat/all");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/surat/all`);
         setAll(response.data);
         };
     const [get5week,set5week]= useState([]);
     const getSurat5week = async () => {
-        const response = await Axios.get("http://localhost:8000/api/surat/5week");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/surat/5week`);
         set5week(response.data);
         };
     const [getmonth,setmonth]= useState([]);
     const getSuratmonth = async () => {
-        const response = await Axios.get("http://localhost:8000/api/surat/month");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/surat/month`);
         setmonth(response.data);
         };
     return(
         <div className="flex justify-evenly items-center h-full">
-            <div className="w-[68%]">
+            <div className="w-[70%]">
                 <h1 className="w-full my-3 text-left text-3xl font-semibold font-mono">
                     <FontAwesomeIcon style={{ fontSize: '1em' }} icon={faMailBulk}/> Dashboard Surat
                 </h1>
@@ -152,7 +152,7 @@ function Inventaris(){
                     </div>
                 </div>
             </div>
-            <div className="w-auto h-full pt-[60px] ml-3 flex flex-col justify-start">
+            <div className="w-full h-full pt-28 ml-3 mr-8 flex flex-col justify-start">
                 <div className="flex h-60 mb-3 justify-center items-center border border-md rounded-md py-5">
                     {getTotal.map((item,idx)=>(
                         <div key={idx}>

@@ -56,7 +56,7 @@ function Upload() {
     formData.append("File", File);
 
     try {
-      const response = await fetch("http://localhost:8000/api/insert", {
+      const response = await fetch(`${import.meta.env.VITE_API}/api/insert`, {
         method: "POST",
         body: formData,
       });

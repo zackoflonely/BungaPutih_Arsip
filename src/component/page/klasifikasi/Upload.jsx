@@ -17,7 +17,7 @@ function Upload() {
     formData.append("Keterangan", Keterangan);
 
     try {
-      const response = await fetch("http://localhost:8000/api/insert/klasifikasi", {
+      const response = await fetch(`${import.meta.env.VITE_API}/api/insert/klasifikasi`, {
         method: "POST",
         body: formData,
       });

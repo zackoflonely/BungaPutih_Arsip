@@ -26,7 +26,7 @@ function Edit() {
   }, []); 
   const { id } = useParams();
   const getSurat = async () => {
-      const response = await Axios.get(`http://localhost:8000/api/detail_surat/${id}`);
+      const response = await Axios.get(`${import.meta.env.VITE_API}/api/detail_surat/${id}`);
       setKlasifikasi(response.data[0].Klasifikasi);
       setUrutan(response.data[0].No_Urut);
       setTujuan(response.data[0].Tujuan);

@@ -17,7 +17,7 @@ function Navbars({isOpen}){
     const handleSearch = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get('http://localhost:8000/api/search/surat', {
+            const response = await axios.get(`${import.meta.env.VITE_API}/api/search/surat`, {
                 params: {
                     keyword: searchTerm
                 }
@@ -28,7 +28,7 @@ function Navbars({isOpen}){
         }
     };
     return(
-        <nav className="container inline-flex mx-5 justify-between">
+        <nav className="container w-full inline-flex mx-5 justify-between">
             <Link to='/' className="w-full">
                 <FontAwesomeIcon style={{ fontSize: '1em' }} icon={faHome}/>
                 <span className="mx-3 font-mono text-md text-slate-600">..{location.pathname}</span>

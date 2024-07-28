@@ -1,5 +1,5 @@
 import { TextField, Button, InputAdornment, IconButton } from "@mui/material";
-import image from '../../assets/logo-dispora.png';
+import image from '../../assets/logo-kukar.png';
 import { useEffect, useState } from "react";
 import Axios from 'axios';
 import Swal from 'sweetalert2';
@@ -22,7 +22,7 @@ function Login(){
     const [Password, setPassword] = useState("");
     const [Acc,setAcc]= useState([]);
     const getAcc = async () => {
-        const response = await Axios.get("http://localhost:8000/api/getAcc");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/getAcc`);
         setAcc(response.data);
       };
     const generateToken = () => {
@@ -44,7 +44,7 @@ function Login(){
             userId: ID,
             userToken: Token
           };
-        fetch('http://localhost:8000/api/auth', {
+        fetch(`${import.meta.env.VITE_API}/api/auth`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function Login(){
             try {
                 await Swal.fire({
                     title: "Berhasil Login",
-                    text: "Welcome to Arsip Surat Bunga Putih",
+                    text: "Selamat Datang di Arsip Surat Bunga Putih",
                     icon: "success"
                   }).then(() => {
                     window.location.href = '/';
@@ -93,7 +93,7 @@ function Login(){
                 <div className="flex justify-center">
                     <LazyLoadImage loading="lazy" className="w-24" src={image} alt="" />
                 </div>
-                <h1 className='text-4xl my-2 text-center font-semibold font-serif text-black'>Welcome Back to Arsip</h1>
+                <h1 className='text-4xl my-2 text-center font-semibold font-serif text-black'>Arsip Surat Bunga Putih</h1>
                 <form onSubmit={handleProcess} className="text-white">
                     <TextField
                         className="text-black"
