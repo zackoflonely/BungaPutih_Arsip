@@ -28,7 +28,7 @@ function Navbars({isOpen}){
         }
     };
     return(
-        <nav className="container w-full inline-flex mx-5 justify-between">
+        <nav className="container w-full inline-flex mx-5 justify-between items-center">
             <Link to='/' className="w-full">
                 <FontAwesomeIcon style={{ fontSize: '1em' }} icon={faHome}/>
                 <span className="mx-3 font-mono text-md text-slate-600">..{location.pathname}</span>

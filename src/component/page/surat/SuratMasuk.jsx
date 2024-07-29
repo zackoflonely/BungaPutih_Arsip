@@ -13,12 +13,12 @@ function SuratMasuk(){
     const [getTahun,setTahun]= useState([]);
     const [getData,setData]= useState('');
     const getSurat = async () => {
-        const response = await Axios.get(`http://localhost:8000/jenis/${id}/${getData}`);
+        const response = await Axios.get(`${import.meta.env.VITE_API}/jenis/${id}/${getData}`);
         setKonten(response.data);
     };
     console.log(getData);
     const getTahunSurat = async () => {
-        const response = await Axios.get("http://localhost:8000/api/tahun");
+        const response = await Axios.get(`${import.meta.env.VITE_API}/api/tahun`);
         setTahun(response.data);
         };
     useEffect(() => {

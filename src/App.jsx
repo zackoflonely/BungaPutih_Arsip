@@ -41,7 +41,7 @@ function App() {
       {!isLoginOrRegister && 
         <div className='h-screen overflow-y-auto'>
           <MyPage isOpen={isOpen}/>
-          <div className={`z-10 top-0 py-3 text-left bg-white fixed w-full ${isOpen ? 'ml-72' : 'ml-10'}`}>
+          <div className={`z-10 top-0 py-3 flex text-left bg-white fixed w-full ${isOpen ? 'ml-72' : 'ml-10'}`}>
             <button onClick={toggleSidebar}>
               <FontAwesomeIcon style={{ fontSize: '1em' }} icon={faBars}/>
             </button>

@@ -16,7 +16,7 @@ export default function TableData({getKonten}) {
         icon: "warning"
       });
       if(confirmation.isConfirmed){
-        const response = await Axios.delete(`http://localhost:8000/api/delete/${ID_Surat}`);
+        const response = await Axios.delete(`${import.meta.env.VITE_API}/api/delete/${ID_Surat}`);
         if (response.status === 200) {
           Swal.fire({
             title: "Berhasil",
