@@ -5,7 +5,7 @@ function Search(){
     const location = useLocation();
     const { results } = location.state;
     return(
-        <div>
+        <div className="mt-7">
             {results && results.length > 0 ? (
                 <TableData getKonten={results}/>
             ):(

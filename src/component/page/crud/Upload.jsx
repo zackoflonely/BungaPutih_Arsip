@@ -95,7 +95,7 @@ function Upload() {
               onChange={(e) => setKlasifikasi(e.target.value)}
             >
               {getKonten.map((item,idx)=>(
-                <MenuItem key={idx} value={item.ID_Klasifikasi}>{item.ID_Klasifikasi}</MenuItem>
+                <MenuItem key={idx} value={item.ID_Klasifikasi}>{`${item.ID_Klasifikasi} (${item.Keterangan})`}</MenuItem>
               ))}
             </Select>
           </FormControl>

@@ -49,7 +49,7 @@ function App() {
           </div>
         </div>
       }
-      <div className={`container ${isOpen && !isLoginOrRegister ? 'ml-72 w-3/4' : 'ml-10 w-full'} ${isLoginOrRegister ? '':'my-16'} `} >
+      <div className={`container ${isOpen && !isLoginOrRegister ? 'ml-72 w-3/4' : 'ml-10 w-full'} ${isLoginOrRegister ? '':'my-12'} `} >
         <Routes>
           {isLoggedIn?(<>
             <Route path='/*' element={<Navigate to='/'/>}/>
