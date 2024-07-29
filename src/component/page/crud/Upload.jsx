@@ -22,7 +22,7 @@ function Upload() {
   }, []); 
   const [getKonten,setKonten]= useState([]);
   const getKlasifikasi = async () => {
-      const response = await Axios.get("http://localhost:8000/api/klasifikasi");
+      const response = await Axios.get(`${import.meta.env.VITE_API}/api/klasifikasi`);
       setKonten(response.data);
     };
 
